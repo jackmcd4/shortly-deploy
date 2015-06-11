@@ -82,6 +82,9 @@ module.exports = function(grunt) {
         //     cb();
         //   }
         // }
+      },
+      dataServer: {
+        command: 'mongod'
       }
     },
   });
@@ -128,6 +131,7 @@ module.exports = function(grunt) {
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
       grunt.task.run(['shell:prodServer']);
+      grunt.task.run(['shell:dataServer']);
 
     } else {
       grunt.task.run([ 'server-dev' ]);
