@@ -31,6 +31,7 @@
     "bluebird": "1.0.8"
   },
   "devDependencies": {
+    "grunt-cli": "^0.1.13",
     "supertest": "^0.10.0"
   }
 }
