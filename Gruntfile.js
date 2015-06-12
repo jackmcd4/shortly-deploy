@@ -4,7 +4,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     concat: {
       options: {
-        separator: ';'
+        separator: ';',
+        mangle: false
       },
       dist: {
         src: ['public/client/**/*.js'],
@@ -120,8 +121,8 @@ module.exports = function(grunt) {
   ////////////////////////////////////////////////////
 
   grunt.registerTask('test', [
-    'jshint'
-    // 'mochaTest'
+    'jshint',
+    'mochaTest'
   ]);
 
   grunt.registerTask('build', [
