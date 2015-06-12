@@ -7,7 +7,7 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: ['public/**/*.js'],
+        src: ['public/client/**/*.js'],
         dest: 'public/dist/built.js'
       }
     },
@@ -83,9 +83,9 @@ module.exports = function(grunt) {
         //   }
         // }
       },
-      dataServer: {
-        command: 'mongod'
-      }
+      // dataServer: {
+      //   command: 'mongod'
+      // }
     },
   });
 
@@ -105,6 +105,10 @@ module.exports = function(grunt) {
          grunt: true,
          args: 'nodemon'
     });
+
+    // dataServer: {
+    //   command: 'mongod'
+    // }
     nodemon.stdout.pipe(process.stdout);
     nodemon.stderr.pipe(process.stderr);
 
@@ -116,8 +120,8 @@ module.exports = function(grunt) {
   ////////////////////////////////////////////////////
 
   grunt.registerTask('test', [
-    'jshint',
-    'mochaTest'
+    'jshint'
+    // 'mochaTest'
   ]);
 
   grunt.registerTask('build', [
@@ -131,7 +135,7 @@ module.exports = function(grunt) {
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
       grunt.task.run(['shell:prodServer']);
-      grunt.task.run(['shell:dataServer']);
+      // grunt.task.run(['shell:dataServer']);
 
     } else {
       grunt.task.run([ 'server-dev' ]);
